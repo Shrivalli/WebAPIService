@@ -1,25 +1,24 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ProjectName-deployment
+  name: helloworld-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ProjectName
+      app: HelloWorld
   template:
     metadata:
       labels:
-        app: ProjectName
+        app: HelloWorld
     spec:
       containers:
-      - name: projectnamelowercase
-        image: abc.azurecr.io/imagename:latest
+      - name: helloworldrepos
+        image: helloworldcts.azurecr.io/helloworldrepos:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
-      - name: keyname
+      - name: helloworldsn
 
 ---
 apiVersion: v1
